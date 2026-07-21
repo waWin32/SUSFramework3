@@ -24,7 +24,7 @@ namespace sus {
 	SUS_ATTRIB_NORETURN void exit(sus::i32 code = 1);
 	#if defined(SUS_DEBUG)
 	// Assert is enabled
-	#define assert(expression) if (!(expression)) sus::abort("assert in " __FILE__ " : " TOSTRING(__LINE__) "\n")
+	#define assert(expression) if (!(expression)) sus::abort("assert in " __FILE__ " : " SUS_TOSTRING(__LINE__) "\n")
 	#else
 	// Assert is disabled
 	#define assert(expression)

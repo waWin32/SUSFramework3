@@ -1,4 +1,4 @@
-// susfwk-utils-array.hpp
+// susfwk-core-array.hpp
 //
 /*
 * =====---------------- array.hpp - structure for working with a static array ----------------=====
@@ -31,7 +31,7 @@ namespace sus {
 		SUS_ATTRIB_PURE constexpr friend sus::usize size(const array&) { return N; }
 		SUS_ATTRIB_PURE constexpr friend iterator begin(const array& arr) { return data(arr); }
 		SUS_ATTRIB_PURE constexpr friend iterator end(const array& arr) { return data(arr) + N; }
-		constexpr sus::iterator_reference_t<iterator> operator[](sus::usize index) const { assert(index < N); return const_cast<T&>(data_[index]); }
+		constexpr sus::iterator_reference_t<iterator> operator[](sus::usize index) const { return const_cast<T&>(data_[index]); }
 	public:
 		constexpr array() = default;
 		template<sus::container_t C> requires (sus::is_iterator_forward_v<sus::iterator_t<C>> && sus::is_same_v<sus::iterator_value_t<sus::iterator_t<C>>, sus::remove_cvref_t<T>>)
