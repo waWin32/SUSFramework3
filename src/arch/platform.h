@@ -1,0 +1,35 @@
+// susfwk-arch-platform.h
+//
+/*
+* =====---------------- platform.h - connecting system libraries ----------------=====
+*
+* Part of the SUSFramework3 Project, under the MIT License
+* See LICENSE.txt for license information.
+* SPDX-License-Identifier: MIT
+*
+* =====--------------------------------------------------------------------------=====
+*/
+#ifndef _SUSFWK_ARCH_PLATFORM_
+#define _SUSFWK_ARCH_PLATFORM_
+
+#include "susfwk/utils/types.hpp"
+
+#if defined(SUS_SYSTEM_WINDOWS)
+
+#define WIN32_EXTRA_LEAN
+#define NOMINMAX
+#define _WIN32_WINNT 0x0A00
+#define NOCOMM
+#include <windows.h>
+#include <shellapi.h>
+#ifdef SUS_DEBUG
+#include <DbgHelp.h>
+#pragma comment(lib, "dbghelp.lib")
+#endif // !SUS_DEBUG
+#elif defined(SUS_SYSTEM_LINUX)
+
+#elif defined(SUS_SYSTEM_MACOS)
+
+#endif /* !SUS_SYSTEM */
+
+#endif /* !_SUSFWK_ARCH_PLATFORM_ */
