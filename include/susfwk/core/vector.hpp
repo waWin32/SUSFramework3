@@ -205,7 +205,8 @@ namespace sus {
 		// Inserting null in an arbitrary location
 		template<bool auto_resize = true>
 		inline iterator insert_uninitialized(iterator i, sus::usize n) {
-			assert(i <= end(*this) && n);
+			assert(i <= end(*this));
+			if (!n) return i;
 			if constexpr (auto_resize) reserve(size(*this) + n, i);
 			sus::uninitialized_move(i, end(*this), i + n);
 			storage.set_size(size(*this) + n);
@@ -214,7 +215,8 @@ namespace sus {
 		// Inserting elements in an arbitrary location
 		template<bool auto_resize = true>
 		inline iterator insert(iterator i, sus::add_const_t<sus::iterator_reference_t<iterator>> value, sus::usize n) {
-			assert(i <= end(*this) && n);
+			assert(i <= end(*this));
+			if (!n) return i;
 			if constexpr (auto_resize) reserve(size(*this) + n, i);
 			sus::uninitialized_move(i, end(*this), i + n);
 			for (auto first = i, last = i + n; first != last; first++) ::new((void*)first) sus::iterator_value_t<iterator>(value);
@@ -234,7 +236,7 @@ namespace sus {
 		// Inserting an elements at the end
 		template<bool auto_resize = true, sus::container_t C> requires(sus::is_same_v<sus::remove_cvref_t<T>, sus::iterator_value_t<sus::iterator_t<C>>>)
 			inline void push(const C& c) {
-			assert(size(c));
+			if (!size(c)) return;
 			if constexpr (auto_resize) reserve(size(*this) + size(c));
 			sus::uninitialized_copy_forward(begin(c), end(c), end(*this));
 			storage.set_size(size(*this) + size(c));
@@ -279,7 +281,8 @@ namespace sus {
 		// Delete items within a range
 		template<bool auto_resize = true, sus::container_t C> requires(sus::is_same_v<sus::remove_cvref_t<T>, sus::iterator_value_t<sus::iterator_t<C>>>)
 			inline iterator erase(const C& c) {
-			assert(size(c) && end(c) < end(*this));
+			assert(end(c) < end(*this));
+			if (!size(c)) return begin(c);
 			sus::destroy(begin(c), end(c));
 			sus::uninitialized_move(end(c), end(*this), begin(c));
 			storage.set_size(size(*this) - size(c));
@@ -299,7 +302,8 @@ namespace sus {
 		// Delete items within a range
 		template<bool auto_resize = true>
 		inline iterator erase(iterator i, sus::usize n) {
-			assert(i + n <= end(*this) && n);
+			assert(i + n <= end(*this));
+			if (!n) return;
 			sus::destroy(i, n);
 			sus::uninitialized_move(i + n, end(*this), i);
 			storage.set_size(size(*this) - n);

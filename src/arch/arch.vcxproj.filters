@@ -13,15 +13,55 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\x86_64">
+      <UniqueIdentifier>{d2e511ae-eab8-4284-a784-726b1bdb33e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClInclude Include="..\..\include\susfwk\arch\exit.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\global_init.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\math.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\memops.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="platform.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\strops.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <NASM Include="x86_64\asmfwk.inc">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
+    <NASM Include="x86_64\global_init.asm">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
+    <NASM Include="x86_64\memops.asm">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
+    <NASM Include="x86_64\memops_backend.asm">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
+    <NASM Include="x86_64\strops_backend.asm">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="exit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
+    <None Include="x86_64\memops_backend.inc">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -41,6 +41,7 @@ namespace sus {
 		SUS_ATTRIB_PURE inline friend auto end(const range& r) { return r.last_; }
 	public:
 		constexpr range() = default;
+		constexpr range(iterator f, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(f) size_(n) { for (auto i = n; i; --i) ++last_; }
 		constexpr range(iterator f, iterator l, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(l), size_(n) {}
 		constexpr range(iterator f, iterator l) : first_(f), last_(l) { for (auto i = f; i != l; ++size_) ++i; }
 		template<sus::container_t C> requires(sus::is_same_v<sus::iterator_value_t<I>, sus::iterator_value_t<sus::iterator_t<C>>>)
@@ -65,6 +66,7 @@ namespace sus {
 		SUS_ATTRIB_PURE inline friend auto end(const range& r) { return r.last_; }
 	public:
 		constexpr range() = default;
+		constexpr range(iterator f, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(f + n) {}
 		constexpr range(iterator f, iterator l, sus::make_unsigned_t<sus::iterator_difference_t<iterator>>) : first_(f), last_(l) {}
 		constexpr range(iterator f, iterator l) : first_(f), last_(l) {}
 		template<sus::container_t C> requires(sus::is_same_v<sus::iterator_value_t<I>, sus::iterator_value_t<sus::iterator_t<C>>>)
@@ -89,6 +91,7 @@ namespace sus {
 		SUS_ATTRIB_PURE inline friend auto end(const range& r) { return r.data_ + r.size_; }
 	public:
 		constexpr range() = default;
+		constexpr range(iterator f, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : data_(f), size_(n) {}
 		constexpr range(iterator f, iterator, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : data_(f), size_(n) {}
 		constexpr range(iterator f, iterator l) : data_(f), size_(l - f) {}
 		template<sus::container_t C> requires(sus::is_same_v<sus::iterator_value_t<I>, sus::iterator_value_t<sus::iterator_t<C>>>)
@@ -100,6 +103,9 @@ namespace sus {
 	// Get the range of the container
 	template<sus::container_t C>
 	range(const C& c) -> range<sus::iterator<C>>;
+	// Get the range from iterators and size
+	template<sus::iterator_forward_t I>
+	range(I f, sus::make_unsigned_t<sus::iterator_difference_t<I>> n) -> range<I>;
 	// Get the range from iterators
 	template<sus::iterator_forward_t I>
 	range(I f, I l, sus::make_unsigned_t<sus::iterator_difference_t<I>> n) -> range<I>;
