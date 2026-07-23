@@ -29,8 +29,7 @@ namespace sus {
 	// An array of characters ending in zero
 	template<sus::char_t T, auto Policy = optimization_policy{}, sus::allocator_base_t Alloc = sus::sysheap_allocator >
 	class string {
-	public:
-		using iterator = T*;
+	public: using iterator = T*;
 	private:
 		sus::vector<T, Policy, Alloc> base_;
 	public:

@@ -46,13 +46,6 @@ namespace sus {
 
 	// -------------------------------------------------------------------
 
-	inline sus::usize size(const sus::chr* s) { return sus::strlen(s); }
-	inline sus::usize size(const sus::chr16* s) { return sus::strlen16(s); }
-	inline sus::usize size(const sus::chr32* s) { return sus::strlen32(s); }
-	inline sus::usize size(const sus::wchr* s) { return sus::wcslen(s); }
-
-	// -------------------------------------------------------------------
-
 	template<sus::char_t T>
 	constexpr bool is_space(T c) { return (c == T(' ') || (c >= T('\t') && c <= T('\r'))); }
 	template<sus::char_t T>

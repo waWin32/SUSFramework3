@@ -45,14 +45,13 @@ namespace sus {
 	SUS_ATTRIB_NODISCARD SUS_ATTRIB_CONST constexpr auto min(T a, T b) { 
 		if constexpr (sus::is_integral_v<T>) {
 			if constexpr (sus::is_signed_v<T>) {
-				T diff = b - a;
-				T sign = diff >> (sizeof(T) * 8 - 1);
-				return b - (diff & sign);
+				using U = sus::make_unsigned_t<T>;
+				U mask = (static_cast<U>(a) - static_cast<U>(b)) >> (sizeof(T) * 8 - 1);
+				return static_cast<T>((static_cast<U>(a) & -mask) | (static_cast<U>(b) & ~- mask));
 			}
 			else {
-				T diff = b - a;
-				T sign = -(diff >> (sizeof(T) * 8 - 1));
-				return (b & ~sign) | (a & sign);
+				T mask = (a - b) >> (sizeof(T) * 8 - 1);
+				return (a & -mask) | (b & ~- mask);
 			}
 		}
 		else return (a < b) ? a : b;
@@ -62,14 +61,13 @@ namespace sus {
 	SUS_ATTRIB_NODISCARD SUS_ATTRIB_CONST constexpr auto max(T a, T b) {
 		if constexpr (sus::is_integral_v<T>) {
 			if constexpr (sus::is_signed_v<T>) {
-				T diff = a - b;
-				T sign = diff >> (sizeof(T) * 8 - 1);
-				return a - (diff & sign);
+				using U = sus::make_unsigned_t<T>;
+				U mask = (static_cast<U>(a) - static_cast<U>(b)) >> (sizeof(T) * 8 - 1);
+				return static_cast<T>((static_cast<U>(b) & -mask) | (static_cast<U>(a) & ~- mask));
 			}
 			else {
-				T diff = a - b;
-				T sign = -(diff >> (sizeof(T) * 8 - 1));
-				return (a & ~sign) | (b & sign);
+				T mask = (a - b) >> (sizeof(T) * 8 - 1);
+				return (b & -mask) | (a & ~- mask);
 			}
 		}
 		else return (a > b) ? a : b;

@@ -29,8 +29,7 @@ namespace sus {
 	// Dynamic continuous array of objects
 	template<typename T, auto Policy = sus::optimization_policy{}, sus::allocator_base_t Alloc = sus::sysheap_allocator >
 	class vector {
-	public:
-		using iterator = T*;
+	public: using iterator = T*;
 	private:
 		class small_layout {
 		private:
@@ -303,7 +302,7 @@ namespace sus {
 		template<bool auto_resize = true>
 		inline iterator erase(iterator i, sus::usize n) {
 			assert(i + n <= end(*this));
-			if (!n) return;
+			if (!n) return i;
 			sus::destroy(i, n);
 			sus::uninitialized_move(i + n, end(*this), i);
 			storage.set_size(size(*this) - n);

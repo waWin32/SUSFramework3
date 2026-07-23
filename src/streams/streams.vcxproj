@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\include\susfwk\streams\console.hpp" />
     <ClInclude Include="..\..\include\susfwk\streams\file.hpp" />
     <ClInclude Include="..\..\include\susfwk\streams\istream.hpp" />
+    <ClInclude Include="..\..\include\susfwk\streams\fstring.hpp" />
     <ClInclude Include="..\..\include\susfwk\streams\ostream.hpp" />
     <ClInclude Include="..\..\include\susfwk\streams\parse.hpp" />
     <ClInclude Include="..\..\include\susfwk\streams\stringify.hpp" />

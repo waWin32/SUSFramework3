@@ -14,6 +14,7 @@
 
 #include "susfwk/utils/core.hpp"
 #include "susfwk/core/algorithms.hpp"
+#include "susfwk/core/range.hpp"
 #include "susfwk/streams/stringify.hpp"
 
 // -------------------------------------------------------------------
@@ -101,11 +102,11 @@ namespace sus {
 				auto pad = start + (f.numeric.min_width - n);
 				sus::uninitialized_move_backward(start, curr, pad + (curr - start));
 				sus::uninitialized_fill(start, pad, f.numeric.pad_char);
-				out.write(sus::span(buffer, f.numeric.min_width));
+				out.write(sus::range(buffer, f.numeric.min_width));
 				return;
 			}
 		}
-		out.write(sus::span(buffer, sus::make_unsigned_t<decltype(n)>(n)));
+		out.write(sus::range(buffer, sus::make_unsigned_t<decltype(n)>(n)));
 	}
 	// Bool output
 	template<typename C = sus::chr, auto f = sus::format_options<C>{} >

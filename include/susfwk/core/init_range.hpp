@@ -25,8 +25,7 @@ namespace sus {
 	// Initializing a range with values that it owns
 	template<typename T>
 	class init_range {
-	public:
-		using iterator = T*;
+	public: using iterator = T*;
 	private:
 		const iterator first_ = nullptr;
 		const iterator last_ = nullptr;

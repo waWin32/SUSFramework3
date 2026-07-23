@@ -20,12 +20,14 @@
 namespace sus {
 
 	// -------------------------------------------------------------------
-
+	
+	// Template for the range
+	template<typename I, typename = void>
+	class range { static_assert(false, "The range accepted an invalid iterator"); };
 	// Range for non-random access iterators
-	template<sus::iterator_forward_t I>
-	class range {
-	public:
-		using iterator = I;
+	template<typename I>
+	class range<I, sus::enable_if_t<sus::is_iterator_forward_v<I> && !sus::is_iterator_random_access_v<I> && !sus::is_pointer_v<I>, void>> {
+	public: using iterator = I;
 	private:
 		iterator first_ = nullptr;
 		iterator last_ = nullptr;
@@ -41,17 +43,16 @@ namespace sus {
 		SUS_ATTRIB_PURE inline friend auto end(const range& r) { return r.last_; }
 	public:
 		constexpr range() = default;
-		constexpr range(iterator f, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(f) size_(n) { for (auto i = n; i; --i) ++last_; }
+		constexpr range(iterator f, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(f), size_(n) { for (auto i = n; i; --i) ++last_; }
 		constexpr range(iterator f, iterator l, sus::make_unsigned_t<sus::iterator_difference_t<iterator>> n) : first_(f), last_(l), size_(n) {}
 		constexpr range(iterator f, iterator l) : first_(f), last_(l) { for (auto i = f; i != l; ++size_) ++i; }
 		template<sus::container_t C> requires(sus::is_same_v<sus::iterator_value_t<I>, sus::iterator_value_t<sus::iterator_t<C>>>)
 		constexpr range(const C& c) : first_(begin(c)), last_(end(c)), size_(size(c)) {}
 	};
 	// Range for random access iterators
-	template<sus::iterator_random_access_t I>
-	class range {
-	public:
-		using iterator = I;
+	template<typename I>
+	class range<I, sus::enable_if_t<sus::is_iterator_random_access_v<I> && !sus::is_pointer_v<I>, void>> {
+	public: using iterator = I;
 	private:
 		iterator first_ = nullptr;
 		iterator last_ = nullptr;
@@ -70,13 +71,12 @@ namespace sus {
 		constexpr range(iterator f, iterator l, sus::make_unsigned_t<sus::iterator_difference_t<iterator>>) : first_(f), last_(l) {}
 		constexpr range(iterator f, iterator l) : first_(f), last_(l) {}
 		template<sus::container_t C> requires(sus::is_same_v<sus::iterator_value_t<I>, sus::iterator_value_t<sus::iterator_t<C>>>)
-		constexpr range(const C& c) : first_(begin(c)), last_(end(c)), size_(size(c)) {}
+		constexpr range(const C& c) : first_(begin(c)), last_(end(c)) {}
 	};
 	// Range for pointer iterators
-	template<sus::pointer_t I>
-	class range {
-	public:
-		using iterator = I;
+	template<typename I >
+	class range<I, sus::enable_if_t<sus::is_pointer_v<I>, void>> {
+	public: using iterator = I;
 	private:
 		iterator data_ = nullptr;
 		sus::make_unsigned_t<sus::iterator_difference_t<iterator>> size_ = 0;
