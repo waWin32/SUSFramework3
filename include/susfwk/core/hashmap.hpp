@@ -18,7 +18,7 @@
 #include "susfwk/core/algorithms.hpp"
 #include "susfwk/arch/memops.h"
 #include "susfwk/arch/exit.hpp"
-#include "susfwk/arch/math.hpp"
+#include "susfwk/utils/base_math.hpp"
 #include "susfwk/core/optimization_policy.hpp"
 #include "susfwk/core/pair.hpp"
 #include "susfwk/core/hasher.hpp"

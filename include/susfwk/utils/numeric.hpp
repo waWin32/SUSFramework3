@@ -136,14 +136,16 @@ namespace sus {
 		static constexpr sus::u32 bits = sizeof(T) * 8;
 		static constexpr sus::u32 digits = bits == 64 ? 53 : 24;
 		static constexpr sus::u32 digits10 = bits == 64 ? 15 : 6;
-
+		static constexpr sus::u32 max_exponent = bits == 64 ? 1024 : 128;
+		static constexpr sus::u32 min_exponent = bits == 64 ? -1021 : -125;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> SIGN_MASK = bits == 64 ? 0x8000000000000000ULL : 0x80000000;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> EXP_MASK = bits == 64 ? 0x7FF0000000000000ULL : 0x7F800000;
-		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> MANTISSA_MASK = bits == 64 ? 0x000FFFFFFFFFFFFFULL : 0x007FFFFF;
+		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> MANTISSA_MASK = bits == 64 ? 0xFFFFFFFFFFFFFULL : 0x7FFFFF;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> INFINITY_BITS = bits == 64 ? 0x7FF0000000000000ULL : 0x7F800000;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> NEG_INFINITY_BITS = bits == 64 ? 0xFFF0000000000000ULL : 0xFF800000;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> QNAN_BITS = bits == 64 ? 0x7FF8000000000000ULL : 0x7FC00000;
 		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> SNAN_BITS = bits == 64 ? 0x7FF4000000000000ULL : 0x7FA00000;
+		static constexpr sus::make_unsigned_t<sus::float_to_int_t<T>> ONE_BITS = bits == 64 ? 0x3FF0000000000000ULL : 0x3F800000;
 
 		static constexpr T min() { return bits == 64 ? 2.2250738585072014e-308 : 1.17549435e-38F; }
 		static constexpr T max() { return bits == 64 ? 1.7976931348623157e+308 : 3.40282347e+38F; }

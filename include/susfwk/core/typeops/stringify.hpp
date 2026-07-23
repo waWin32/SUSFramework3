@@ -19,7 +19,7 @@
 
 // -------------------------------------------------------------------
 
-#include "susfwk/arch/math.hpp"
+#include "susfwk/utils/base_math.hpp"
 
 namespace sus {
 

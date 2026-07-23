@@ -32,7 +32,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\susfwk\arch\exit.hpp" />
     <ClInclude Include="..\..\include\susfwk\arch\global_init.hpp" />
-    <ClInclude Include="..\..\include\susfwk\arch\math.hpp" />
+    <ClInclude Include="..\..\include\susfwk\arch\incasimd.hpp" />
+    <ClInclude Include="..\..\include\susfwk\arch\math_scalar.hpp" />
     <ClInclude Include="..\..\include\susfwk\arch\memops.h" />
     <ClInclude Include="..\..\include\susfwk\arch\strops.hpp" />
     <ClInclude Include="platform.h" />
@@ -149,7 +150,7 @@
       <PrecompiledHeaderFile />
       <CompileAs>CompileAsCpp</CompileAs>
       <OmitDefaultLibName>true</OmitDefaultLibName>
-      <AdditionalOptions>/GA %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/GA /arch:AVX %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -194,7 +195,7 @@
       <PrecompiledHeaderFile />
       <CompileAs>CompileAsCpp</CompileAs>
       <OmitDefaultLibName>true</OmitDefaultLibName>
-      <AdditionalOptions>/GA %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/GA /arch:AVX %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -233,7 +234,7 @@
       <PrecompiledHeaderFile />
       <CompileAs>CompileAsCpp</CompileAs>
       <OmitDefaultLibName>true</OmitDefaultLibName>
-      <AdditionalOptions>/GA %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/GA /arch:AVX %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -278,7 +279,7 @@
       <PrecompiledHeaderFile />
       <CompileAs>CompileAsCpp</CompileAs>
       <OmitDefaultLibName>true</OmitDefaultLibName>
-      <AdditionalOptions>/GA %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/GA /arch:AVX %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

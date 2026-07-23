@@ -24,9 +24,6 @@
     <ClInclude Include="..\..\include\susfwk\arch\global_init.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\susfwk\arch\math.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\susfwk\arch\memops.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -34,6 +31,12 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\susfwk\arch\strops.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\math_scalar.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\arch\incasimd.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

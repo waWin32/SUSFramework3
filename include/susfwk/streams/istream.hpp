@@ -15,7 +15,7 @@
 #include "susfwk/utils/core.hpp"
 #include "susfwk/utils/iterator.hpp"
 #include "susfwk/utils/container.hpp"
-#include "susfwk/arch/math.hpp"
+#include "susfwk/utils/base_math.hpp"
 #include "susfwk/arch/strops.hpp"
 #include "susfwk/core/algorithms.hpp"
 #include "susfwk/core/vector.hpp"

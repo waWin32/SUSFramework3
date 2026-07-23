@@ -276,10 +276,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\susfwk\utils\allocator.hpp" />
+    <ClInclude Include="..\..\include\susfwk\utils\base_math.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\container.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\core.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\initializer_list.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\iterator.hpp" />
+    <ClInclude Include="..\..\include\susfwk\utils\mathdef.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\numeric.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\types.hpp" />
     <ClInclude Include="..\..\include\susfwk\utils\type_traits.hpp" />
