@@ -29,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\susfwk\core\algorithms.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\array.hpp" />
+    <ClInclude Include="..\..\include\susfwk\core\comparator.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\errorsys.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\hasher.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\hashmap.hpp" />
@@ -41,6 +42,10 @@
     <ClInclude Include="..\..\include\susfwk\core\reverse_iterator.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\string.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\system_allocator.hpp" />
+    <ClInclude Include="..\..\include\susfwk\core\typeops\compare.hpp" />
+    <ClInclude Include="..\..\include\susfwk\core\typeops\hasher.hpp" />
+    <ClInclude Include="..\..\include\susfwk\core\typeops\parse.hpp" />
+    <ClInclude Include="..\..\include\susfwk\core\typeops\stringify.hpp" />
     <ClInclude Include="..\..\include\susfwk\core\vector.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,4 +1,4 @@
-// susfwk-arch-entry_point.cpp
+// susfwk-core-entry_point.cpp
 //
 /*
 * =====---------------- entry_point.cpp - defining the entry point to the program ----------------=====
@@ -22,7 +22,7 @@ namespace sus {
 
 	// Get Command Line parameters
 	static sus::pair<sus::u32, sus::string<sus::chr>*> get_command_line() {
-#if defined(SUS_SYSTEM_WINDOWS)
+		#if defined(SUS_SYSTEM_WINDOWS)
 		volatile sus::u32 wargc;
 		LPWSTR* wargv = CommandLineToArgvW(GetCommandLineW(), (int*)&wargc);
 		auto* args = static_cast<sus::string<sus::chr>*>(sus::sysheap_allocator::malloc(sizeof(sus::string<sus::chr>) * wargc));
@@ -34,11 +34,11 @@ namespace sus {
 		}
 		LocalFree((HLOCAL)wargv);
 		return sus::pair{ wargc, args };
-#elif defined(SUS_SYSTEM_LINUX)
+		#elif defined(SUS_SYSTEM_LINUX)
 
-#elif defined(SUS_SYSTEM_MACOS)
+		#elif defined(SUS_SYSTEM_MACOS)
 
-#endif /* !SUS_SYSTEM */
+		#endif /* !SUS_SYSTEM */
 	}
 	// Clean up command line parameters
 	static void free_command_line(sus::pair<sus::u32, sus::string<sus::chr>*>& args) {

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\typeops">
+      <UniqueIdentifier>{a68c717c-093c-444d-aeaf-211539ced5e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="entry_point.cpp">
@@ -64,6 +67,21 @@
     </ClInclude>
     <ClInclude Include="..\..\include\susfwk\core\hasher.hpp">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\core\comparator.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\core\typeops\compare.hpp">
+      <Filter>Файлы заголовков\typeops</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\core\typeops\hasher.hpp">
+      <Filter>Файлы заголовков\typeops</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\core\typeops\parse.hpp">
+      <Filter>Файлы заголовков\typeops</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\core\typeops\stringify.hpp">
+      <Filter>Файлы заголовков\typeops</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

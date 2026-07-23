@@ -35,5 +35,11 @@
     <ClInclude Include="..\..\include\susfwk\streams\file.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\streams\parse.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\susfwk\streams\stringify.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
