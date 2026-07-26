@@ -33,7 +33,7 @@
     <ClInclude Include="..\..\include\susfwk\arch\strops.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\susfwk\arch\math_scalar.hpp">
+    <ClInclude Include="..\..\include\susfwk\arch\mathscal.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\susfwk\arch\incasimd.hpp">
@@ -56,15 +56,13 @@
     <NASM Include="x86_64\strops_backend.asm">
       <Filter>Исходные файлы\x86_64</Filter>
     </NASM>
+    <NASM Include="x86_64\mathops_backend.asm">
+      <Filter>Исходные файлы\x86_64</Filter>
+    </NASM>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="x86_64\memops_backend.inc">
-      <Filter>Исходные файлы\x86_64</Filter>
-    </None>
   </ItemGroup>
 </Project>

@@ -1,16 +1,16 @@
-// susfwk-arch-math_scalar.hpp
+// susfwk-arch-mathscal.hpp
 //
 /*
-* =====---------------- math_scalar.hpp - complex mathematical functions with a fraction without simd ----------------=====
+* =====---------------- mathscal.hpp - complex mathematical functions with a fraction without simd ----------------=====
 *
 * Part of the SUSFramework3 Project, under the MIT License
 * See LICENSE.txt for license information.
 * SPDX-License-Identifier: MIT
 *
-* =====---------------------------------------------------------------------------------------------------------------=====
+* =====------------------------------------------------------------------------------------------------------------=====
 */
-#ifndef _SUSFWK_ARCH_MATH_SCALAR_
-#define _SUSFWK_ARCH_MATH_SCALAR_
+#ifndef _SUSFWK_ARCH_MATHSCAL_
+#define _SUSFWK_ARCH_MATHSCAL_
 
 #include "susfwk/utils/core.hpp"
 #include "susfwk/utils/base_math.hpp"
@@ -244,6 +244,8 @@ namespace sus {
         }
     }
 
+    // -------------------------------------------------------------------
+
 }
 
-#endif /* !_SUSFWK_ARCH_MATH_SCALAR_ */
+#endif /* !_SUSFWK_ARCH_MATHSCAL_ */

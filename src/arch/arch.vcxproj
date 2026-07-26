@@ -22,6 +22,7 @@
     <NASM Include="x86_64\asmfwk.inc">
       <FileType>Document</FileType>
     </NASM>
+    <NASM Include="x86_64\mathops_backend.asm" />
     <NASM Include="x86_64\memops.asm" />
     <NASM Include="x86_64\memops_backend.asm" />
     <NASM Include="x86_64\strops_backend.asm" />
@@ -33,16 +34,13 @@
     <ClInclude Include="..\..\include\susfwk\arch\exit.hpp" />
     <ClInclude Include="..\..\include\susfwk\arch\global_init.hpp" />
     <ClInclude Include="..\..\include\susfwk\arch\incasimd.hpp" />
-    <ClInclude Include="..\..\include\susfwk\arch\math_scalar.hpp" />
+    <ClInclude Include="..\..\include\susfwk\arch\mathscal.hpp" />
     <ClInclude Include="..\..\include\susfwk\arch\memops.h" />
     <ClInclude Include="..\..\include\susfwk\arch\strops.hpp" />
     <ClInclude Include="platform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exit.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="x86_64\memops_backend.inc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
